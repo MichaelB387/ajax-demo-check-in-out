@@ -40,11 +40,11 @@ xhr.send();
 
 
 // Room availability
-var roomstatus = new XMLHttpRequest();
+var roomRequest = new XMLHttpRequest();
 
-roomstatus.onreadystatechange = function() {
-  if (roomstatus.readyState === 4) {
-    var rooms = JSON.parse(roomstatus.responseText);
+roomRequest.onreadystatechange = function() {
+  if (roomRequest.readyState === 4) {
+    var rooms = JSON.parse(roomRequest.responseText);
     var statusHTML = '<ul class="rooms">';
     for (var i = 0; i < rooms.length; i += 1) {
       if (rooms[i].available === true) {
@@ -60,5 +60,5 @@ roomstatus.onreadystatechange = function() {
   }
 };
 
-roomstatus.open("GET", "data/rooms.json");
-roomstatus.send();
+roomRequest.open("GET", "data/rooms.json");
+roomRequest.send();
